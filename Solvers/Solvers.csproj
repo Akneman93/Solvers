@@ -1,0 +1,222 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9994DD63-E1B1-4309-9ACA-BC5890339EBB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Solvers</RootNamespace>
+    <AssemblyName>Solvers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="XamlBuildTask" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\Astar\ARepairA.cs" />
+    <Compile Include="Algorithms\Astar\abstrA.cs" />
+    <Compile Include="Algorithms\DefaultOperator.cs" />
+    <Compile Include="Algorithms\Astar\Astar.cs" />
+    <Compile Include="Algorithms\Astar\AWA.cs" />
+    <Compile Include="Algorithms\Astar\AWinA.cs" />
+    <Compile Include="Algorithms\Exceptions\NoOperatorFoundException.cs" />
+    <Compile Include="Algorithms\Result.cs" />
+    <Compile Include="Algorithms\MCTS\UCTNodeSucGen.cs" />
+    <Compile Include="Algorithms\TD\QLearning.cs" />
+    <Compile Include="Algorithms\TD\QNode.cs" />
+    <Compile Include="Algorithms\TD\QNodeSucGen.cs" />
+    <Compile Include="Forms\AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChartForm.Designer.cs">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GridWorldForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GridWorldForm2.Designer.cs">
+      <DependentUpon>GridWorldForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GridWorldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GridWorldForm.Designer.cs">
+      <DependentUpon>GridWorldForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NPuzzleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NPuzzleForm.Designer.cs">
+      <DependentUpon>NPuzzleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ParametersFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParametersFrom.Designer.cs">
+      <DependentUpon>ParametersFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SolutionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SolutionForm.Designer.cs">
+      <DependentUpon>SolutionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Benchmarks\GridWorld\GridWorldMap.cs" />
+    <Compile Include="Benchmarks\GridWorld\GWHCal.cs" />
+    <Compile Include="Benchmarks\GridWorld\MoveOperators.cs" />
+    <Compile Include="Interfaces\IHCalculator.cs" />
+    <Compile Include="Interfaces\INode.cs" />
+    <Compile Include="Interfaces\IParameters.cs" />
+    <Compile Include="Interfaces\ISearchInfo.cs" />
+    <Compile Include="Interfaces\ISuccGenerator.cs" />
+    <Compile Include="Benchmarks\NPuzzle\NPuzzleManDistCal.cs" />
+    <Compile Include="Benchmarks\NPuzzle\MoveOperator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChartForm.resx">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GridWorldForm.resx">
+      <DependentUpon>GridWorldForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GridWorldForm2.resx">
+      <DependentUpon>GridWorldForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NPuzzleForm.resx">
+      <DependentUpon>NPuzzleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParametersFrom.resx">
+      <DependentUpon>ParametersFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SolutionForm.resx">
+      <DependentUpon>SolutionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Interfaces\IOperator.cs" />
+    <Compile Include="Algorithms\MCTS\UCT.cs" />
+    <Compile Include="Interfaces\IPolicy.cs" />
+    <Compile Include="Interfaces\IState.cs" />
+    <Compile Include="Interfaces\ISolver.cs" />
+    <Compile Include="Algorithms\NodeTable.cs" />
+    <Compile Include="Benchmarks\GridWorld\GridWorldState.cs" />
+    <Compile Include="Benchmarks\NPuzzle\NPuzzleState.cs" />
+    <Compile Include="Algorithms\Astar\ANode.cs" />
+    <Compile Include="Interfaces\IQProvider.cs" />
+    <Compile Include="Algorithms\Exceptions\NoSolutionException.cs" />
+    <Compile Include="Algorithms\Exceptions\NoGoalSetException.cs" />
+    <Compile Include="Algorithms\MCTS\UCTNode.cs" />
+    <Compile Include="Algorithms\Exceptions\NoChildrenException.cs" />
+    <Compile Include="Algorithms\Exceptions\NotApplicableOperatorException.cs" />
+    <Compile Include="Interfaces\IEnvironment.cs" />
+    <Compile Include="Interfaces\IOutcome.cs" />
+    <Compile Include="Benchmarks\GridWorld\GridWorld.cs" />
+    <Compile Include="Algorithms\Outcome.cs" />
+    <Compile Include="Benchmarks\NPuzzle\NPuzzle.cs" />
+    <Compile Include="Algorithms\Astar\ANodeSucGen.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
