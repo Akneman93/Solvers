@@ -299,9 +299,9 @@ namespace Solvers.Algorithms.Astar
         public virtual ISearchInfo GetSearchInfo()
         {
             Result result = new Result();
-            result.SearchResutlts.Add(Name, Name);
-            result.SearchResutlts.Add(expansions_Name, expansions.ToString());            
-            result.SearchResutlts.Add(nodesGenerated_Name, nodesGenerated.ToString());
+            result.SearchResults.Add(Name, Name);
+            result.SearchResults.Add(expansions_Name, expansions.ToString());            
+            result.SearchResults.Add(nodesGenerated_Name, nodesGenerated.ToString());
 
             result.SearchParameters.Add(timeAvaliable_Name, timeAvaliable.ToString());
 

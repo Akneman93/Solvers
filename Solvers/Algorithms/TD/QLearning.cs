@@ -60,8 +60,8 @@ namespace Solvers.Algorithms.TD
             result.SearchParameters.Add(Gamma_Name, Gamma.ToString());
             result.SearchParameters.Add(epsilon_Name, epsilon.ToString());
 
-            result.SearchResutlts.Add(Name, Name);
-            result.SearchResutlts.Add(episodeCount_Name, episodeCount.ToString());
+            result.SearchResults.Add(Name, Name);
+            result.SearchResults.Add(episodeCount_Name, episodeCount.ToString());
 
 
             Chart chart = new Chart();

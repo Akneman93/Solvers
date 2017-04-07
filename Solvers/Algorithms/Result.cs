@@ -14,7 +14,7 @@ namespace Solvers.Algorithms
 
         private List<Chart> chartList = new List<Chart>();
 
-        public Dictionary<String, String> SearchResutlts
+        public Dictionary<String, String> SearchResults
         {
             get
             {

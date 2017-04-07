@@ -53,8 +53,8 @@ namespace Solvers.Algorithms.MCTS
         public virtual ISearchInfo GetSearchInfo()
         {
             Result result = new Result();
-            result.SearchResutlts.Add(Name, Name);
-            result.SearchResutlts.Add(NumberOfGeneratedNodes_Name, NumberOfGeneratedNodes.ToString());
+            result.SearchResults.Add(Name, Name);
+            result.SearchResults.Add(NumberOfGeneratedNodes_Name, NumberOfGeneratedNodes.ToString());
 
             result.SearchParameters.Add(timeAvailable_Name, timeAvailable.ToString());
             result.SearchParameters.Add(Cp_Name, Cp.ToString());

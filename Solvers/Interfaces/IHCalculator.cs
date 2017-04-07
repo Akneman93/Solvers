@@ -8,7 +8,7 @@ namespace Solvers.Interfaces
     public interface IHCalculator<TNode>
     {
         /// <summary>
-        /// Estimates largest possible cummulative reward from start to  goal
+        /// Estimates largest possible cummulative reward from start to goal
         /// </summary>
         /// <param name="start">start node</param>
         /// <param name="goal">goal node</param>

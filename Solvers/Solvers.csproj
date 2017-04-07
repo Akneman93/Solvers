@@ -126,7 +126,6 @@
     <Compile Include="Benchmarks\GridWorld\MoveOperators.cs" />
     <Compile Include="Interfaces\IHCalculator.cs" />
     <Compile Include="Interfaces\INode.cs" />
-    <Compile Include="Interfaces\IParameters.cs" />
     <Compile Include="Interfaces\ISearchInfo.cs" />
     <Compile Include="Interfaces\ISuccGenerator.cs" />
     <Compile Include="Benchmarks\NPuzzle\NPuzzleManDistCal.cs" />

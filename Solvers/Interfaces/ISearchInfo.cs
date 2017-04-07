@@ -7,9 +7,12 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Solvers.Interfaces
 {
+    /// <summary>
+    /// Contains parameters of an algorithm
+    /// </summary>
     public interface ISearchInfo
     {
-        Dictionary<String, String> SearchResutlts
+        Dictionary<String, String> SearchResults
         {
             get;          
         }

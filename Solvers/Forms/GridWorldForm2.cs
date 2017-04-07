@@ -51,7 +51,7 @@ namespace Solvers.Forms
             DataGridViewRow row;
 
             int i = 0;
-            foreach (KeyValuePair<string, string> pair in A.GetSearchInfo().SearchResutlts.Union(A.GetSearchInfo().SearchParameters))
+            foreach (KeyValuePair<string, string> pair in A.GetSearchInfo().SearchResults.Union(A.GetSearchInfo().SearchParameters))
             {
 
                 row = new DataGridViewRow();

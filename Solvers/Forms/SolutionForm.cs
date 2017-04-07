@@ -88,7 +88,7 @@ namespace Solvers.Forms
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             i = 0;
-            foreach (KeyValuePair<string, string> pair in info.SearchResutlts.Union(info.SearchParameters))
+            foreach (KeyValuePair<string, string> pair in info.SearchResults.Union(info.SearchParameters))
             {                
                 row = new DataGridViewRow();
 

@@ -2,12 +2,12 @@
 namespace Solvers.Interfaces
 {
     /// <summary>
-    /// represents environment in which agent work
+    /// represents environment in which agent works
     /// </summary>
     public interface IEnvironment
 	{
         /// <summary>
-        /// performs action
+        /// Perform action in current state of the environment
         /// </summary>
         /// <param name="currentState">current state of the environment</param>
         /// <param name="op">operator to use in current state</param>
