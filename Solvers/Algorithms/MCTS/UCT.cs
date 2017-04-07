@@ -286,7 +286,7 @@ namespace Solvers.Algorithms.MCTS
                     return sumQ;
                 usedOp = operators.ElementAt(rand.Next(opCount));
                 outcome = Env.act(currentState, usedOp);
-                sumQ += outcome.QValue;
+                sumQ += outcome.Reward;
                 depth += 1;
                 currentState = outcome.State;
             }

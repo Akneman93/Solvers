@@ -25,7 +25,7 @@ namespace Solvers.Algorithms.Astar
 
 
         public AWA(ISuccGenerator<ANode> successorNodesGenerator,                          
-                          IHCalculator hValueCalculator,
+                          IHCalculator<ANode> hValueCalculator,
                           int W)
         {
             succGen = successorNodesGenerator;            

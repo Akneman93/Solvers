@@ -27,7 +27,7 @@ namespace Solvers.Algorithms.Astar
                 succ.State = outcome.State;
                 succ.UsedOperator = op;
                 succ.Parent = node;
-                succ.G = (int)(node.G - outcome.QValue);
+                succ.G = (int)(node.G - outcome.Reward);
 				successors.Add(succ);
 			}
 
@@ -47,7 +47,7 @@ namespace Solvers.Algorithms.Astar
             succ.State = outcome.State;
             succ.UsedOperator = op;
             succ.Parent = node;
-            succ.G = (int)(node.G - outcome.QValue);
+            succ.G = (int)(node.G - outcome.Reward);
 			return succ;
 		}
 

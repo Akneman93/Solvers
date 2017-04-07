@@ -9,10 +9,10 @@ namespace Solvers.Algorithms
 		public Outcome(IState state, double qValue)
 		{
 			State = state;
-			QValue = qValue;
+			Reward = qValue;
 		}
 
 		public IState State { get; set; }
-		public double QValue { get; set; }
+		public double Reward { get; set; }
 	}
 }

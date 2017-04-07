@@ -129,7 +129,7 @@ namespace Solvers.Forms
 
                 IOutcome outcome = env.act(currentState, policy.action(currentState));
 
-                SumQ += outcome.QValue;
+                SumQ += outcome.Reward;
 
                 currentState = (GridWorldState)outcome.State;
 

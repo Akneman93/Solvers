@@ -2,7 +2,7 @@
 namespace Solvers.Interfaces
 {
     /// <summary>
-    /// interface for a node 
+    /// Interface for a node 
     /// </summary>
     public interface INode
     {      

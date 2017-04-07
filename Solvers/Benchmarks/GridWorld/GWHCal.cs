@@ -4,7 +4,7 @@ using Solvers.Interfaces;
 
 namespace Solvers.GridWorldBench
 {
-    public class GWHCal:IHCalculator
+    public class GWHCal:IHCalculator<ANode>
     {
         int blockSize;
         public int BlockSize

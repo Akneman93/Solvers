@@ -6,7 +6,6 @@ namespace Solvers.Interfaces
     /// <summary>
     /// Interface for a class that calculates the policy
     /// </summary>
-
     public interface ISolver
 	{
 		IPolicy getPolicy();

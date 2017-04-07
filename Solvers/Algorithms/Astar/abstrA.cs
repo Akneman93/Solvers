@@ -18,7 +18,7 @@ namespace Solvers.Algorithms.Astar
 
         protected string name = "abstrA";
         protected ISuccGenerator<ANode> succGen;
-        protected IHCalculator hCalc;
+        protected IHCalculator<ANode> hCalc;
 
         protected NodeTable<ANode> openList;
         protected NodeTable<ANode> closedList;

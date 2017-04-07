@@ -23,7 +23,7 @@ namespace Solvers.Algorithms.Astar
 
 
         public AWinA(ISuccGenerator<ANode> successorNodesGenerator,                         
-                          IHCalculator hValueCalculator)
+                          IHCalculator<ANode> hValueCalculator)
         {
             comparer = new FComparer(this);
             suspendList = new NodeTable<ANode>(comparer);

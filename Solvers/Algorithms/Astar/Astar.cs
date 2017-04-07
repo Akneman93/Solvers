@@ -11,7 +11,7 @@ namespace Solvers.Algorithms.Astar
         private IComparer<ANode> comparer;
 
         public Astar(ISuccGenerator<ANode> successorNodesGenerator,                         
-                          IHCalculator hValueCalculator)
+                          IHCalculator<ANode> hValueCalculator)
         {
             comparer = new FComparer(this);
             succGen = successorNodesGenerator;           

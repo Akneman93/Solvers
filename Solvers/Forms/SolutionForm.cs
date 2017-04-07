@@ -63,7 +63,7 @@ namespace Solvers.Forms
                 currentState = outcome.State;
                 stateList.Add(outcome.State);
 
-                SumQ += outcome.QValue;
+                SumQ += outcome.Reward;
 
                 i += 1;
             }

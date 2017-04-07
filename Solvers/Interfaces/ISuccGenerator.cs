@@ -2,6 +2,10 @@
 
 namespace Solvers.Interfaces
 {
+    /// <summary>
+    /// Interface for class that generates nodes
+    /// </summary>
+    /// <typeparam name="TNode">type of generated nodes</typeparam>
     public interface ISuccGenerator<TNode>
     {
 

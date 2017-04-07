@@ -2,7 +2,7 @@
 namespace Solvers.Interfaces
 {
     /// <summary>
-    /// represents environment in which agent works
+    /// Represents environment in which agent works
     /// </summary>
     public interface IEnvironment
 	{
@@ -18,7 +18,7 @@ namespace Solvers.Interfaces
 
 
         /// <summary>
-        /// returns list of all applicable operators in current state
+        /// Returns list of all applicable operators in current state
         /// </summary>
         /// <param name="s"> current state </param>
         /// <returns>list of all applicable operators in current state</returns>

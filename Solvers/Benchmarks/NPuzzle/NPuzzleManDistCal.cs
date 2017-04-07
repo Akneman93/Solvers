@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Solvers.NPuzzleBench
 {
-    public class NPuzzleManDistCal : IHCalculator
+    public class NPuzzleManDistCal : IHCalculator<ANode>
     {
         private const int Costfactor = 1;
 

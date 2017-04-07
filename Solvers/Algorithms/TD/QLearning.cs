@@ -204,7 +204,7 @@ namespace Solvers.Algorithms.TD
 
                 IOutcome outcome = Env.act(currentState, op);
 
-                EpisodeReward += outcome.QValue;
+                EpisodeReward += outcome.Reward;
 
                 qTurple turple = getTurple(currentState, op);
 
@@ -213,7 +213,7 @@ namespace Solvers.Algorithms.TD
                 if (!goalFound && currentState.Equals(Goal.State))
                     turple.Q += 100; 
 
-                turple.Q = turple.Q + Alpha * (outcome.QValue + Gamma * GetBestTurple(outcome.State).Q - turple.Q);
+                turple.Q = turple.Q + Alpha * (outcome.Reward + Gamma * GetBestTurple(outcome.State).Q - turple.Q);
 
                 
             }
