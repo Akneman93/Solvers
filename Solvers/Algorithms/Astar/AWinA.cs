@@ -62,14 +62,8 @@ namespace Solvers.Algorithms.Astar
 
                 return comparer;
             }
-
-
         }
-
-
-
-
-
+        
 
 
 
@@ -201,7 +195,7 @@ namespace Solvers.Algorithms.Astar
                 if (currentNode.Equals(goalNode))
                 {
                     foundGoalNode = currentNode;
-                    reward_time_dic.Add(currentNode.G, stopwatch.Elapsed.TotalMilliseconds);
+                    rewards.Add(stopwatch.Elapsed.TotalMilliseconds,currentNode.G);
                     return true;
                 }
 
@@ -218,9 +212,8 @@ namespace Solvers.Algorithms.Astar
                     if (openList.TryGetValue(successorNode, out node1))
                     {
                         if (node1.G > successorNode.G)
-                        {
+                        {                            
                             
-                            //successorNode.G = gCalc.Calculate(successorNode);
                             successorNode.H = hCalc.Calculate(successorNode, goalNode);
                             successorNode.Level = currentNode.Level + 1;
                             

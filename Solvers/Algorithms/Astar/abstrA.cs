@@ -33,7 +33,7 @@ namespace Solvers.Algorithms.Astar
 
 
         protected double timeAvaliable;
-        protected string timeAvaliable_Name = "Available time";
+        protected string timeAvaliable_Name = "Available time(ms)";
 
         protected volatile bool stopped = false;
 
@@ -46,11 +46,11 @@ namespace Solvers.Algorithms.Astar
 
 
         /// <summary>
-        /// contains pairs (r, time) where 
+        /// contains pairs (time, r) where 
         /// r is cummulative reward of found solution, 
         /// time - time when solution was found
         /// </summary>
-        public Dictionary<double, double> reward_time_dic;        
+        public Dictionary<double, double> rewards;        
 
         public readonly Stopwatch stopwatch = new Stopwatch();
 
@@ -68,7 +68,7 @@ namespace Solvers.Algorithms.Astar
 			startNode = null;
 			goalNode = null;
             timeAvaliable = 5000;
-            reward_time_dic = new Dictionary<double, double>();
+            rewards = new Dictionary<double, double>();
             openList = new NodeTable<ANode>(Comparer);
             closedList = new NodeTable<ANode>(Comparer);
         }
@@ -299,7 +299,7 @@ namespace Solvers.Algorithms.Astar
         public virtual ISearchInfo GetSearchInfo()
         {
             Result result = new Result();
-            result.SearchResults.Add(Name, Name);
+            result.SearchResults.Add("Algorithm", Name);
             result.SearchResults.Add(expansions_Name, expansions.ToString());            
             result.SearchResults.Add(nodesGenerated_Name, nodesGenerated.ToString());
 
@@ -320,9 +320,9 @@ namespace Solvers.Algorithms.Astar
             chart.ChartAreas[0].AxisX.Minimum = 0;
             chart.Series[Name].Points.AddXY(0, 0);
 
-            foreach(KeyValuePair<double,double> pair in reward_time_dic)
+            foreach(KeyValuePair<double,double> pair in rewards)
             {
-                chart.Series[Name].Points.AddXY(pair.Value, pair.Key);
+                chart.Series[Name].Points.AddXY(pair.Key, pair.Value);
             }
 
             result.ChartList.Add(chart);

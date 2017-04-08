@@ -26,7 +26,7 @@ namespace Solvers.Algorithms.TD
         private string epsilon_Name = "Epsilon";
 
         private double timeAvailable;
-        private string timeAvailable_Name = "Available time";
+        private string timeAvailable_Name = "Available time(ms)";
 
         private int episodeCount;
         private string episodeCount_Name = "Number of episodes";

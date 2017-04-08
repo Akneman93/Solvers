@@ -302,7 +302,7 @@ namespace Solvers.Forms
             try
             {
                 ISearchInfo info = solver.GetSearchInfo();
-                ParametersFrom pf = new ParametersFrom(info);
+                ParametersForm pf = new ParametersForm(info);
                 pf.ShowDialog();
 
                 if (pf.DialogResult != DialogResult.OK)

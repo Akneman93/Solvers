@@ -146,7 +146,7 @@ namespace Solvers.Algorithms.Astar
                 {
                     foundGoalNode = currentNode;
 
-                    reward_time_dic.Add(currentNode.G, stopwatch.Elapsed.TotalMilliseconds);
+                    rewards.Add(stopwatch.Elapsed.TotalMilliseconds,currentNode.G);
                     continue;
                 }
 
@@ -173,10 +173,9 @@ namespace Solvers.Algorithms.Astar
                             if (InOpen = openList.TryGetValue(successorNode, out node1))
                             {
 								if (node1.G > successorNode.G)
-                                {
-                                   
-                                    //successorNode.G = gCalc.Calculate(successorNode);
-                                    successorNode.H = hCalc.Calculate(successorNode, goalNode);                               
+                                {                                   
+                                    
+                                    successorNode.H = hCalc.Calculate(successorNode, goalNode);                              
 
 
 									openList.RemoveValue(node1);
@@ -192,8 +191,7 @@ namespace Solvers.Algorithms.Astar
                                 {
 									if (node2.G > successorNode.G)
                                     {
-										closedList.RemoveValue(node2);                                       
-                                        //successorNode.G = gCalc.Calculate(successorNode);
+										closedList.RemoveValue(node2);                                         
                                         successorNode.H = hCalc.Calculate(successorNode, goalNode);
                                         
                                         openList.AddValue(successorNode);
@@ -202,9 +200,8 @@ namespace Solvers.Algorithms.Astar
 
                                 else
                                     
-                                    {
+                                    {                                      
                                         
-                                        //successorNode.G = gCalc.Calculate(successorNode);
                                         successorNode.H = hCalc.Calculate(successorNode, goalNode);
                                         openList.AddValue(successorNode);
                                     }

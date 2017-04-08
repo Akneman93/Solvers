@@ -24,7 +24,7 @@ namespace Solvers.Algorithms.MCTS
         public readonly Stopwatch stopwatch = new Stopwatch();
 
         private double timeAvailable;
-        private string timeAvailable_Name = "Available time";
+        private string timeAvailable_Name = "Available time(ms)";
 
         private int NumberOfGeneratedNodes = 0;
         private string NumberOfGeneratedNodes_Name = "Number of generated nodes";

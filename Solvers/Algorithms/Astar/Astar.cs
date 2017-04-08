@@ -121,7 +121,7 @@ namespace Solvers.Algorithms.Astar
                     foundGoalNode = currentNode;
                     isOptimalFound = true;
 
-                    reward_time_dic.Add(currentNode.G, stopwatch.Elapsed.TotalMilliseconds);                   
+                    rewards.Add(stopwatch.Elapsed.TotalMilliseconds,currentNode.G);                   
                     return false;
                 }
                 

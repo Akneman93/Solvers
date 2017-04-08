@@ -9,8 +9,8 @@ namespace Solvers.Forms
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
-            this.labelProductName.Text = String.Format("Название продукта: {0}", AssemblyProduct);
-            this.labelVersion.Text = String.Format("Версия: {0}", AssemblyVersion);
+            this.labelProductName.Text = String.Format("Product name: {0}", AssemblyProduct);
+            this.labelVersion.Text = String.Format("Version: {0}", AssemblyVersion);
             this.labelCopyright.Text = String.Format("Copyright: {0}", AssemblyCopyright);            
             
         }
@@ -53,7 +53,7 @@ namespace Solvers.Forms
         {
             get
             {
-                return "Петров Алексей";
+                return "Petrov Aleksey";
             }
         }
 

@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace Solvers.Forms
 {
-    public partial class ParametersFrom : Form
+    public partial class ParametersForm : Form
     {
         Dictionary<Label, TextBox> dic = new Dictionary<Label, TextBox>();
         ISearchInfo info;
 
-        public ParametersFrom(ISearchInfo info)
+        public ParametersForm(ISearchInfo info)
         {
             InitializeComponent();
             int i = 0;

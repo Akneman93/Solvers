@@ -1,6 +1,6 @@
 ﻿namespace Solvers.Forms
 {
-    partial class ParametersFrom
+    partial class ParametersForm
     {
         /// <summary>
         /// Required designer variable.

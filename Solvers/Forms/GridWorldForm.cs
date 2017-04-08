@@ -77,6 +77,7 @@ namespace Solvers.Forms
             radioButton1.Checked = true;
             blockSizeList.Text = blockSizeList.Items[0].ToString();
 
+            
             InitialState();
 
         }
@@ -426,7 +427,7 @@ namespace Solvers.Forms
             try
             {
                 ISearchInfo info = solver.GetSearchInfo();
-                ParametersFrom pf = new ParametersFrom(info);
+                ParametersForm pf = new ParametersForm(info);
                 pf.ShowDialog();
 
                 if (pf.DialogResult != DialogResult.OK)

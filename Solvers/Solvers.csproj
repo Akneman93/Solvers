@@ -109,11 +109,11 @@
     <Compile Include="Forms\NPuzzleForm.Designer.cs">
       <DependentUpon>NPuzzleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ParametersFrom.cs">
+    <Compile Include="Forms\ParametersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ParametersFrom.Designer.cs">
-      <DependentUpon>ParametersFrom.cs</DependentUpon>
+    <Compile Include="Forms\ParametersForm.Designer.cs">
+      <DependentUpon>ParametersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SolutionForm.cs">
       <SubType>Form</SubType>
@@ -150,8 +150,8 @@
     <EmbeddedResource Include="Forms\NPuzzleForm.resx">
       <DependentUpon>NPuzzleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ParametersFrom.resx">
-      <DependentUpon>ParametersFrom.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ParametersForm.resx">
+      <DependentUpon>ParametersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SolutionForm.resx">
       <DependentUpon>SolutionForm.cs</DependentUpon>
