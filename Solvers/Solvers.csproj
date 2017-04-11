@@ -46,6 +46,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=2.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -61,7 +62,6 @@
     <Reference Include="XamlBuildTask" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\Astar\ARepairA.cs" />
     <Compile Include="Algorithms\Astar\abstrA.cs" />
     <Compile Include="Algorithms\DefaultOperator.cs" />
     <Compile Include="Algorithms\Astar\Astar.cs" />
