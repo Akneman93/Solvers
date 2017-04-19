@@ -6,7 +6,7 @@ namespace Solvers.GridWorldBench
     public class GridWorldMap
     {
 
-        public static Color StartPointColor = Color.Red;
+        public static Color AgentPointColor = Color.Red;
         public static Color GoalPointColor = Color.Green;
         public static Color FreePointColor = Color.White;
         public static Color BlockColor = Color.Black;
@@ -69,7 +69,8 @@ namespace Solvers.GridWorldBench
             if (Y - blockSize < 0)
                 return false;
             Color pixelColor = bitmap.GetPixel(X, Y - blockSize);
-            return pixelColor.ToArgb() == FreePointColor.ToArgb() || pixelColor.ToArgb() == GoalPointColor.ToArgb();
+            return pixelColor.ToArgb() == FreePointColor.ToArgb() || pixelColor.ToArgb() == GoalPointColor.ToArgb() 
+                || pixelColor.ToArgb() == AgentPointColor.ToArgb();
         }
 
         public bool isDownFree(int X, int Y, int blockSize)
@@ -77,7 +78,8 @@ namespace Solvers.GridWorldBench
             if (Y + blockSize >= bitmap.Height)
                 return false;
             Color pixelColor = bitmap.GetPixel(X, Y + blockSize);
-            return pixelColor.ToArgb() == FreePointColor.ToArgb() || pixelColor.ToArgb() == GoalPointColor.ToArgb();
+            return pixelColor.ToArgb() == FreePointColor.ToArgb() || pixelColor.ToArgb() == GoalPointColor.ToArgb()
+                 || pixelColor.ToArgb() == AgentPointColor.ToArgb();
         }
 
         public bool isLeftFree(int X, int Y, int blockSize)
@@ -85,7 +87,8 @@ namespace Solvers.GridWorldBench
             if (X - blockSize < 0)
                 return false;
             Color pixelColor = bitmap.GetPixel(X - blockSize, Y);
-            return pixelColor.ToArgb() == FreePointColor.ToArgb() || pixelColor.ToArgb() == GoalPointColor.ToArgb();
+            return pixelColor.ToArgb() == FreePointColor.ToArgb() || pixelColor.ToArgb() == GoalPointColor.ToArgb()
+                 || pixelColor.ToArgb() == AgentPointColor.ToArgb();
         }
 
         public bool isRightFree(int X, int Y, int blockSize)
@@ -93,7 +96,8 @@ namespace Solvers.GridWorldBench
             if (X + blockSize >= bitmap.Width)
                 return false;
             Color pixelColor = bitmap.GetPixel(X + blockSize, Y);
-            return pixelColor.ToArgb() == FreePointColor.ToArgb() || pixelColor.ToArgb() == GoalPointColor.ToArgb();
+            return pixelColor.ToArgb() == FreePointColor.ToArgb() || pixelColor.ToArgb() == GoalPointColor.ToArgb()
+                 || pixelColor.ToArgb() == AgentPointColor.ToArgb();
         }
 
          

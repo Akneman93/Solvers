@@ -73,6 +73,7 @@
     <Compile Include="Algorithms\TD\QLearning.cs" />
     <Compile Include="Algorithms\TD\QNode.cs" />
     <Compile Include="Algorithms\TD\QNodeSucGen.cs" />
+    <Compile Include="Algorithms\TD\SARSA.cs" />
     <Compile Include="Forms\AboutBox1.cs">
       <SubType>Form</SubType>
     </Compile>

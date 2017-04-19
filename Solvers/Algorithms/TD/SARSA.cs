@@ -8,7 +8,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Solvers.Algorithms.TD
 {
-    class QLearning : ISolver
+    class SARSA : ISolver
     {
         private Dictionary<IState, IEnumerable<qTurple>> QValues = new Dictionary<IState, IEnumerable<qTurple>>();
 
@@ -47,14 +47,14 @@ namespace Solvers.Algorithms.TD
             Gamma = Double.Parse(parameters[Gamma_Name]);
             epsilon = Double.Parse(parameters[epsilon_Name]);
             timeAvailable = int.Parse(parameters[timeAvailable_Name]);
-            
+
         }
 
 
 
         public virtual ISearchInfo GetSearchInfo()
         {
-            Result result = new Result();           
+            Result result = new Result();
             result.SearchParameters.Add(Alpha_Name, Alpha.ToString());
             result.SearchParameters.Add(timeAvailable_Name, timeAvailable.ToString());
             result.SearchParameters.Add(Gamma_Name, Gamma.ToString());
@@ -65,7 +65,7 @@ namespace Solvers.Algorithms.TD
 
 
             Chart chart = new Chart();
-            chart.Series.Add(Name);            
+            chart.Series.Add(Name);
             chart.ChartAreas.Add("area");
             chart.Name = "Reward per training episode";
             chart.ChartAreas[0].AxisY.Title = "Training episode reward";
@@ -77,7 +77,7 @@ namespace Solvers.Algorithms.TD
 
             for (int i = 0; i < episodeCount; i++)
             {
-                chart.Series[Name].Points.AddXY(i+1, EpisodeRewards[i]);
+                chart.Series[Name].Points.AddXY(i + 1, EpisodeRewards[i]);
             }
 
             result.ChartList.Add(chart);
@@ -89,7 +89,7 @@ namespace Solvers.Algorithms.TD
 
         private IEnvironment Env;
 
-       
+
 
 
         public readonly Stopwatch stopwatch = new Stopwatch();
@@ -99,14 +99,15 @@ namespace Solvers.Algorithms.TD
         private bool goalFound = false;
 
 
-        public string Name {
+        public string Name
+        {
 
-            get { return "Q-learning"; }
+            get { return "SARSA"; }
 
         }
 
 
-        public QLearning(IEnvironment Env, double Alpha, double Gamma, double epsilon)
+        public SARSA(IEnvironment Env, double Alpha, double Gamma, double epsilon)
         {
             this.Env = Env;
             this.Alpha = Alpha;
@@ -124,12 +125,12 @@ namespace Solvers.Algorithms.TD
         private void AddNewState(IState state)
         {
             List<qTurple> list = new List<qTurple>();
-            foreach(IOperator op in Env.ApplicableOperators(state))
+            foreach (IOperator op in Env.ApplicableOperators(state))
             {
-               qTurple turple = new qTurple();
-               turple.Q = DefaultQ(state, op);
-               turple.Op = op;
-               list.Add(turple);
+                qTurple turple = new qTurple();
+                turple.Q = DefaultQ(state, op);
+                turple.Op = op;
+                list.Add(turple);
             }
             QValues.Add(state, list);
         }
@@ -147,7 +148,7 @@ namespace Solvers.Algorithms.TD
             {
                 AddNewState(s);
                 return getTurple(s, op);
-            }            
+            }
         }
 
 
@@ -196,7 +197,7 @@ namespace Solvers.Algorithms.TD
 
             EpisodeReward = 0;
 
-            IState currentState = Start.State;
+            IState currentState = Start.State;           
 
             while (!currentState.Equals(Goal.State) && stopwatch.Elapsed.TotalMilliseconds < timeAvailable && !stopped)
             {
@@ -206,12 +207,14 @@ namespace Solvers.Algorithms.TD
 
                 EpisodeReward += outcome.Reward;
 
-                qTurple turple = getTurple(currentState, op);                
+                qTurple turple = getTurple(currentState, op);
+
+               
 
                 if (!goalFound && outcome.State.Equals(Goal.State))
-                    turple.Q += 100; 
+                    turple.Q += 100;
 
-                turple.Q = turple.Q + Alpha * (outcome.Reward + Gamma * GetBestTurple(outcome.State).Q - turple.Q);
+                turple.Q = turple.Q + Alpha * (outcome.Reward + Gamma * getTurple(outcome.State,GetBestOp(outcome.State)).Q - turple.Q);
 
                 currentState = outcome.State;
 
@@ -224,20 +227,20 @@ namespace Solvers.Algorithms.TD
 
             if (currentState.Equals(Goal.State))
                 goalFound = true;
-                
+
         }
 
 
-       
+
 
 
 
 
         public void Execute()
         {
-            stopwatch.Restart();            
+            stopwatch.Restart();
             while (stopwatch.Elapsed.TotalMilliseconds < timeAvailable && !stopped)
-                  Train();
+                Train();
         }
 
         public void Stop()
@@ -267,32 +270,32 @@ namespace Solvers.Algorithms.TD
 
         private class EpsilonGreedyPolicy : IPolicy
         {
-            QLearning qLearning = null;
+            SARSA sarsa = null;
 
             Random rand = new Random();
 
             double epsilon;
 
-            public EpsilonGreedyPolicy(QLearning qLearning, double epsilon)
+            public EpsilonGreedyPolicy(SARSA sarsa, double epsilon)
             {
-                this.qLearning = qLearning;
+                this.sarsa = sarsa;
                 this.epsilon = epsilon;
             }
 
-            
+
 
 
             public IOperator action(IState s)
-            {                             
+            {
 
                 if (rand.NextDouble() < epsilon)
                 {
-                    int size = qLearning.Env.ApplicableOperators(s).Count();
-                    return qLearning.Env.ApplicableOperators(s).ElementAt(rand.Next(size));
+                    int size = sarsa.Env.ApplicableOperators(s).Count();
+                    return sarsa.Env.ApplicableOperators(s).ElementAt(rand.Next(size));
                 }
                 else
                 {
-                    return qLearning.GetBestOp(s);
+                    return sarsa.GetBestOp(s);
                 }
 
 
@@ -329,17 +332,17 @@ namespace Solvers.Algorithms.TD
 
         private class Policy : IPolicy
         {
-            QLearning qLearning;
+            SARSA sarsa;
 
-            public Policy(QLearning qLearning)
+            public Policy(SARSA sarsa)
             {
-                this.qLearning = qLearning;
+                this.sarsa = sarsa;
             }
 
 
             public IOperator action(IState s)
             {
-                return qLearning.GetBestOp(s);
+                return sarsa.GetBestOp(s);
             }
 
 
@@ -357,7 +360,7 @@ namespace Solvers.Algorithms.TD
 
             public bool isGoal(IState s)
             {
-                return qLearning.Goal.State.Equals(s);
+                return sarsa.Goal.State.Equals(s);
             }
         }
 

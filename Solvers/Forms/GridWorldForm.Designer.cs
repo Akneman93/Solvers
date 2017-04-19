@@ -45,6 +45,7 @@
             this.Menu_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Help_About = new System.Windows.Forms.ToolStripMenuItem();
             this.StopBtn = new System.Windows.Forms.Button();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -62,7 +63,7 @@
             // 
             // BeginBtn
             // 
-            this.BeginBtn.Location = new System.Drawing.Point(473, 284);
+            this.BeginBtn.Location = new System.Drawing.Point(473, 321);
             this.BeginBtn.Name = "BeginBtn";
             this.BeginBtn.Size = new System.Drawing.Size(128, 23);
             this.BeginBtn.TabIndex = 2;
@@ -94,6 +95,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioButton6);
             this.groupBox1.Controls.Add(this.radioButton5);
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Controls.Add(this.radioButton2);
@@ -101,7 +103,7 @@
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(473, 44);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 208);
+            this.groupBox1.Size = new System.Drawing.Size(300, 234);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Algorithms";
@@ -143,7 +145,7 @@
             // 
             // ShowBtn
             // 
-            this.ShowBtn.Location = new System.Drawing.Point(631, 284);
+            this.ShowBtn.Location = new System.Drawing.Point(631, 321);
             this.ShowBtn.Name = "ShowBtn";
             this.ShowBtn.Size = new System.Drawing.Size(128, 23);
             this.ShowBtn.TabIndex = 8;
@@ -216,13 +218,24 @@
             // 
             // StopBtn
             // 
-            this.StopBtn.Location = new System.Drawing.Point(473, 331);
+            this.StopBtn.Location = new System.Drawing.Point(473, 368);
             this.StopBtn.Name = "StopBtn";
             this.StopBtn.Size = new System.Drawing.Size(128, 23);
             this.StopBtn.TabIndex = 24;
             this.StopBtn.Text = "Stop";
             this.StopBtn.UseVisualStyleBackColor = true;
             this.StopBtn.Click += new System.EventHandler(this.StopBtn_Click);
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(14, 202);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(61, 17);
+            this.radioButton6.TabIndex = 10;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "SARSA";
+            this.radioButton6.UseVisualStyleBackColor = true;
             // 
             // GridWorldForm
             // 
@@ -270,5 +283,6 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.Button StopBtn;
+        private System.Windows.Forms.RadioButton radioButton6;
     }
 }

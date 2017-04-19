@@ -171,7 +171,18 @@ namespace Solvers.Forms
                 start = new UCTNode();
                 goal = new UCTNode();
             }
-           
+            else
+            if (radioButton6.Checked)
+            {
+                A = new SARSA(new GridWorld(gwMap, blockSize), 0.5, 0.99, 0.2);
+                start = new QNode();
+                goal = new QNode();
+            }
+
+
+
+
+
             start.State = new GridWorldState(StartX, StartY);
             start.UsedOperator = new DefaultOperator("Init");
             start.Parent = null;
